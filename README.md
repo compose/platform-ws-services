@@ -22,6 +22,8 @@ To seed the databases with some test data, run the following:
 
 We do flush the Redis database, so if you have other things you are working on, either start redis on a different port or backup your data
 
+**NOTE**: this work sample was originally created with RethinkDB 2.0.x and [gorethink 1.0.0](https://github.com/dancannon/gorethink/releases/tag/v1.0.0).  Since releasing the work sample both the driver and the database have new minor version releases.  In testing, we found connection issues with new versions of the driver and the database.  You may use the versions that you wish, but we wanted to keep you from pulling your hair out.
+
 ```shell
 go test -tags=seed
 ```
