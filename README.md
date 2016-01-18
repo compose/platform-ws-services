@@ -137,7 +137,7 @@ const (
 ***HINTS:***
 
 - Currently there's no communication channel created between listener and notifier, that's a good place to start
-- The models returned in `getInfo` provides all the information meeded to determine whether a specific deployment or group should receive a notification for a particular service
+- The models returned in `getInfo` provides all the information needed to determine whether a specific deployment or group should receive a notification for a particular service
 
 
 
