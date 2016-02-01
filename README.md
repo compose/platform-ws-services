@@ -115,7 +115,7 @@ const (
 ```
 
 - `check.capsule_id`: this is somewhat of a random value for testing purposes but you'll want to make the unique across deployments
-- `check.deployment_id`: this needs to match up with whatever deployment(s) you have regiesterd with the system; based on the seed data, "987654321" or "13243647586970" are valid values
+- `check.deployment_id`: this needs to match up with whatever deployment(s) you have registered with the system; based on the seed data, "987654321" or "13243647586970" are valid values
 - `check.account`: whatever your heart desires it's just an identifer for an account in the system
 
 ##HTTP Routes
