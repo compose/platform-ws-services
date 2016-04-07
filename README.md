@@ -3,66 +3,14 @@ Platform Work Sample (Services)
 
 The contained project serves as the backend/service layer of the Platform Engineering work sample.
 
-You'll need a few things setup first before you get going.
+##Setup
 
-###Environment Variables
+There are 3 ways to develop on this project:
 
-- REDIS_URL, typically `localhost:6379`
-- RETHINK_URL, typically `localhost:28015`
-- COMPOSE_SERVICE_PASSWORD, whatever you want
-
-###Services
-
-- Redis
-- RethinkDB
-
-To seed the databases with some test data, run the following:
-
-***WARNING***
-
-We do flush the Redis database, so if you have other things you are working on, either start redis on a different port or backup your data
-
-**NOTE**: this work sample was originally created with RethinkDB 2.0.x and [gorethink 1.0.0](https://github.com/dancannon/gorethink/releases/tag/v1.0.0).  Since releasing the work sample both the driver and the database have new minor version releases.  In testing, we found connection issues with new versions of the driver and the database.  You may use the versions that you wish, but we wanted to keep you from pulling your hair out.
-
-```shell
-go test -tags=seed
-```
-
-To run the app,
-
-```shell
-go build ./... && ./platform-ws-services
-```
-
-If successful, you should see the following message:
-
-```shell
-listening on 8000
-```
-
-and if you've seeded the data, you should be able to run:
-
-```shell
-curl -u x:$COMPOSE_SERVICE_PASSWORD 'http://localhost:8000/margo/deployments/987654321'
-```
-
-which should return:
-
-```shell
-{
-  "111111": [
-    {
-      "account": "compose-test",
-      "capsule_id": "111111",
-      "capsule_name": "redis0",
-      "deployment_id": "987654321",
-      "name":"redis_role",
-      "output": "",
-      "status":0
-    }
-  ]
-}
-```
+* Use our provided Vagrantfile to setup a [VM deployment](./docs/vagrant_full.md)
+* Use our provided Vagrantfile to [deploy only the
+  databases](./docs/vagrant_partial.md)
+* Do everything yourself [manually](./docs/manual_setup.md)
 
 ##Data Model
 
@@ -83,7 +31,7 @@ The `Check` model is a "dictionary" of all the checks returned by each deploymen
 You can send an "alert" to the system with the following command:
 
 ```shell
-curl -u x:jprules -XPOST http://localhost:8000/margo/alerts -d \
+curl -u x:$COMPOSE_SERVICE_PASSWORD -XPOST http://<service_ip>:8000/margo/alerts -d \
 '{ \
   "client": "localhost", \
   "check": { \
