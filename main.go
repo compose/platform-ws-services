@@ -14,6 +14,7 @@ import (
 
 var (
 	listenPort      = flag.String("p", "8000", "api listen port")
+	bindAddress     = flag.String("bind", "127.0.0.1", "api bind address")
 	redisUrl        = flag.String("redisUrl", os.Getenv("REDIS_URL"), "Redis URL")
 	redisPassword   = flag.String("redisPassword", os.Getenv("REDIS_PASSWORD"), "Redis password")
 	rethinkUrl      = flag.String("rethinkUrl", os.Getenv("RETHINK_URL"), "RethinkDB URL")
@@ -50,8 +51,8 @@ func main() {
 	mux.Handle("/margo/checks/", http.StripPrefix("/margo/checks/", ChecksHandlerFunc()))
 	mux.Handle("/margo/alerts", http.StripPrefix("/margo/alerts", AlertsHandlerFunc(listener)))
 
-	log.Printf("listening on %s\n", *listenPort)
-	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", *listenPort), mux))
+	log.Printf("listening on %s:%s\n", *bindAddress, *listenPort)
+	log.Fatal(http.ListenAndServe(fmt.Sprintf("%s:%s", *bindAddress, *listenPort), mux))
 }
 
 func initRethinkConn() (*r.Session, error) {
