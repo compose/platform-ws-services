@@ -1,0 +1,5 @@
+#!/bin/bash
+export REDIS_URL=10.0.32.3:6379
+export RETHINK_URL=10.0.32.2:28015
+export COMPOSE_SERVICE_URL=http://10.0.32.4:8000/margo/
+export COMPOSE_SERVICE_PASSWORD=12345
