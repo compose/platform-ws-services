@@ -1,0 +1,39 @@
+{
+	"ImportPath": "git.compose.io/compose/platform-ws-services",
+	"GoVersion": "go1.6",
+	"Packages": [
+		"./..."
+	],
+	"Deps": [
+		{
+			"ImportPath": "github.com/Sirupsen/logrus",
+			"Comment": "v0.8.7-53-g446d1c1",
+			"Rev": "446d1c146faa8ed3f4218f056fcd165f6bcfda81"
+		},
+		{
+			"ImportPath": "github.com/cenkalti/backoff",
+			"Rev": "4dc77674aceaabba2c7e3da25d4c823edfb73f99"
+		},
+		{
+			"ImportPath": "github.com/dancannon/gorethink",
+			"Comment": "v1.0.0",
+			"Rev": "8aca6ba2cc6e873299617d730fac0d7f6593113a"
+		},
+		{
+			"ImportPath": "github.com/garyburd/redigo/internal",
+			"Rev": "836b6e58b3358112c8291565d01c35b8764070d7"
+		},
+		{
+			"ImportPath": "github.com/garyburd/redigo/redis",
+			"Rev": "836b6e58b3358112c8291565d01c35b8764070d7"
+		},
+		{
+			"ImportPath": "github.com/golang/protobuf/proto",
+			"Rev": "8df8a93c670173cd1d8737a507a253b94f2d0b5a"
+		},
+		{
+			"ImportPath": "golang.org/x/sys/unix",
+			"Rev": "042a8f53ce82bbe081222da955159491e32146a0"
+		}
+	]
+}
