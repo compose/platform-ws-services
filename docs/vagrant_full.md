@@ -5,6 +5,8 @@ The platform-ws-services project depends on RethinkDB and Redis.
 We have provided a Vagrantfile to ease your development cycle and reduce
 what dependencies you need to worry about.
 
+Please note: This requires Vagrant 1.5+
+
 ##Deploying
 
 In order to provision a deployment issue a:
