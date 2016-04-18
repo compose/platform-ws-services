@@ -68,7 +68,13 @@ You can work within the VM if you want via `vagrant ssh compose`. But you
 probably prefer to write code on your own machine with your favorite
 editors. To do this, just edit the code then perform a `vagrant provision
 compose` and the compose VM will test, rebuild and relaunch the new
-platform-ws-services.
+platform-ws-services, as well as reseed the databases.
+
+Note of importance, when provisioning - the default behavior is to set an
+expiration to Redis keys. Don't panic if you brought up your VM a while
+ago and all of a sudden you aren't seeing things you think you should.
+Simply run a `vagrant provision compose` which will reseed the databases,
+giving you expected state as given in these docs.
 
 ##Of Note
 
