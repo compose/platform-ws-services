@@ -1,1 +1,5 @@
 platform-ws-services
+platform-ws-services.log
+.vagrant
+.vagrant/
+.vagrant/*

@@ -53,6 +53,15 @@ and get
 where `$COMPOSE_SERVICE_PASSWORD` and `$COMPOSE_SERVICE_URL` are defined in
 `setup-env.sh`
 
+##Logs
+
+Stderr and Stdout for the platform-ws-services process will be accessible
+from within the compose VM at `/var/log/platform-ws-services.log` as well
+as locally in the `platform-ws-services.log` file
+
+So a `tail -f [PLATFORM_WS_SERVICES_DIR]/platform-ws-services.log` will
+give you live logs from the deployment
+
 ##Developing
 
 You can work within the VM if you want via `vagrant ssh compose`. But you

@@ -93,7 +93,8 @@ script
     sleep 1
   done
   . /home/vagrant/go/src/github.com/compose/platform-ws-services/setup-env.sh
-  /home/vagrant/go/bin/platform-ws-services --bind=0.0.0.0
+
+  exec /home/vagrant/go/bin/platform-ws-services --bind=0.0.0.0 2>&1 | tee -a /var/log/platform-ws-services.log /vagrant/platform-ws-services.log
 end script
 EOL
           initctl reload-configuration
