@@ -46,6 +46,10 @@ go test -tags=seed
 
 To run the app,
 
+Note: You should be running Go1.6 or Go1.5 with Vendor Experiment enabled,
+as this ensures you're using the correct dependency versions from the
+./vendor directory
+
 ```shell
 go build ./... && ./platform-ws-services
 ```
