@@ -12,6 +12,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     rethinkdb.vm.network "private_network", ip:"10.0.32.2"
 
+    rethinkdb.vm.provider "virtualbox" do |v|
+      v.memory = 256
+    end
+
     rethinkdb.vm.provision :shell do |sh|
         sh.inline = <<-EOF
 
@@ -29,7 +33,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 EOL
             touch /var/lock/provision.lock
 
-          fi  
+          fi
 
           service rethinkdb restart
         EOF
@@ -40,6 +44,10 @@ EOL
     redis.vm.box_version = "1.1.0"
 
     redis.vm.network "private_network", ip:"10.0.32.3"
+
+    redis.vm.provider "virtualbox" do |v|
+      v.memory = 256
+    end
 
     redis.vm.provision :shell do |sh|
       sh.inline = <<-EOF
@@ -59,6 +67,11 @@ EOL
     compose.vm.box_version = "1.1.0"
 
     compose.vm.network "private_network", ip:"10.0.32.4"
+
+    compose.vm.provider "virtualbox" do |v|
+      v.memory = 256
+    end
+
     compose.vm.provision :shell do |sh|
       sh.inline = <<-EOF
         export GOPATH=/home/vagrant/go
